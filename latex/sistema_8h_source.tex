@@ -1,0 +1,150 @@
+\doxysection{sistema.\+h}
+\hypertarget{sistema_8h_source}{}\label{sistema_8h_source}\mbox{\hyperlink{sistema_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ SISTEMA\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ SISTEMA\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <ctype.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/CONSTANTES\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ BUFMAX\ 65536\ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ máximo\ de\ caracteres\ de\ uma\ instrução\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ MAX\_VACINAS\ 1000\ \ \ \ \ \ }\textcolor{comment}{/*\ máximo\ de\ vacinas\ no\ sistema\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ MAX\_NOME\_VACINA\ 50\ \ \ \ }\textcolor{comment}{/*\ máximo\ de\ bytes\ do\ nome\ da\ vacina\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ MAX\_LOTE\ 20\ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ máximo\ de\ digitos\ hexadecimais\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ MAX\_DATA\ 9\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{/*\ máximo\ de\ caracteres\ de\ uma\ data\ (dia-\/mes-\/ano)\ */}\textcolor{preprocessor}{\ }}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ MENSAGENS\ DE\ ERRO\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ ERRO\_CAPACITY,}
+\DoxyCodeLine{00031\ \ \ \ \ ERRO\_DUPLICATE\_BATCH,}
+\DoxyCodeLine{00032\ \ \ \ \ ERRO\_INVALID\_BATCH,}
+\DoxyCodeLine{00033\ \ \ \ \ ERRO\_INVALID\_NAME,}
+\DoxyCodeLine{00034\ \ \ \ \ ERRO\_INVALID\_DATE,}
+\DoxyCodeLine{00035\ \ \ \ \ ERRO\_INVALID\_QUANTITY,}
+\DoxyCodeLine{00036\ \ \ \ \ ERRO\_NO\_SUCH\_VACCINE,}
+\DoxyCodeLine{00037\ \ \ \ \ ERRO\_NO\_STOCK,}
+\DoxyCodeLine{00038\ \ \ \ \ ERRO\_ALREADY\_VACCINATED,}
+\DoxyCodeLine{00039\ \ \ \ \ ERRO\_NO\_SUCH\_BATCH,}
+\DoxyCodeLine{00040\ \ \ \ \ ERRO\_NO\_SUCH\_USER,}
+\DoxyCodeLine{00041\ \ \ \ \ ERRO\_NO\_MEMORY}
+\DoxyCodeLine{00042\ \}\ ERROS;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ ESTRUTURAS\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ dia;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ mes;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ ano;}
+\DoxyCodeLine{00051\ \}\ \mbox{\hyperlink{struct_data}{Data}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ ENGLISH,}
+\DoxyCodeLine{00055\ \ \ \ \ PORTUGUESE}
+\DoxyCodeLine{00056\ \}\ Idioma;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{char}\ lote[MAX\_LOTE\ +\ 1];}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{struct_data}{Data}}\ data\_validade;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{int}\ doses;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ inoculadas;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{char}\ nome\_vacina[MAX\_NOME\_VACINA\ +\ 1];}
+\DoxyCodeLine{00064\ \}\ \mbox{\hyperlink{struct_vacina}{Vacina}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_inoculacao}{Inoculacao}}\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{struct_data}{Data}}\ data\_inoculacao;}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{struct_vacina}{Vacina}}*\ vacina;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_utente}{Utente}}*\ utente;}
+\DoxyCodeLine{00070\ \}\ \mbox{\hyperlink{struct_inoculacao}{Inoculacao}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_inoculacao_lista_item}{InoculacaoListaItem}}\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{struct_inoculacao}{Inoculacao}}*\ atual;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_inoculacao_lista_item}{InoculacaoListaItem}}*\ next;}
+\DoxyCodeLine{00075\ \}\ \mbox{\hyperlink{struct_inoculacao_lista_item}{InoculacaoListaItem}};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_utente}{Utente}}\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{char}\ nome\_utente[BUFMAX\ +\ 1];}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{struct_inoculacao_lista_item}{InoculacaoListaItem}}*\ inoculacao\_head;}
+\DoxyCodeLine{00080\ \}\ \mbox{\hyperlink{struct_utente}{Utente}};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_utente_lista_item}{UtenteListaItem}}\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{struct_utente}{Utente}}*\ atual;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_utente_lista_item}{UtenteListaItem}}*\ next;}
+\DoxyCodeLine{00085\ \}\ \mbox{\hyperlink{struct_utente_lista_item}{UtenteListaItem}};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vacina_lista_item}{VacinaListaItem}}\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{struct_vacina}{Vacina}}*\ atual;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vacina_lista_item}{VacinaListaItem}}*\ next;}
+\DoxyCodeLine{00090\ \}\ \mbox{\hyperlink{struct_vacina_lista_item}{VacinaListaItem}};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{struct_data}{Data}}\ data\_atual;}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{struct_vacina_lista_item}{VacinaListaItem}}*\ vacinas\_head;}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{struct_utente_lista_item}{UtenteListaItem}}*\ utentes\_head;}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{struct_inoculacao_lista_item}{InoculacaoListaItem}}*\ inoculacoes\_head;}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_vacinas;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_inoculacoes;}
+\DoxyCodeLine{00099\ \}\ \mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ FUNCOES\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_a159c1506f5cae2d8c6d57fbd15000ff2}{seleciona\_idioma}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ *argv[]);}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_a156a3450f27c0c399ba4e083b46d821c}{diasDosMeses}}(\textcolor{keywordtype}{int}\ mes);}
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_a3e6b6894b3ca9a06aef6e38a94203498}{dataValida}}(\mbox{\hyperlink{struct_data}{Data}}\ data);}
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_a1253c47adadcd28ad241ca2ec9ec07df}{nomeValido}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nome);}
+\DoxyCodeLine{00108\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_ab318ae2a62b178de05fb809e9f7b336c}{loteValido}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ lote);}
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_acad703e19b0d2d90d3127efa18658c74}{comparaDatas}}(\mbox{\hyperlink{struct_data}{Data}}\ data1,\ \mbox{\hyperlink{struct_data}{Data}}\ data2);}
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_aa1fcc6fd5ff6205e8aa94094a305fa5c}{dataAnterior}}(\mbox{\hyperlink{struct_data}{Data}}\ d1,\ \mbox{\hyperlink{struct_data}{Data}}\ d2);}
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_ad3733bdcc18471307d2beb112d3e2314}{valida\_designacao\_lote}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ lote);}
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_a617e05ce7b3846a36e56c1b49b26364e}{valida\_Data\_anterior}}(\mbox{\hyperlink{struct_data}{Data}}\ data,\ \mbox{\hyperlink{struct_data}{Data}}\ current\_date);}
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_a111dd0cd9d0d2b1f8e84ed830d1fdc26}{valida\_nome}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nome);}
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_a1c586598d3f9480fa4d78652d4e8d59b}{valida\_Doses}}(\textcolor{keywordtype}{int}\ doses);}
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_a56c191a3846dffad683bc915907e4258}{verifica\_capacidade}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema);}
+\DoxyCodeLine{00116\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_af1f44f5e23a7e660db4b950f05b793aa}{verifica\_Lotes\_duplicados}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ lote);}
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_a719c052452505009db7d84488d6196bf}{valida\_data\_superior}}(\mbox{\hyperlink{struct_data}{Data}}\ date,\ \mbox{\hyperlink{struct_data}{Data}}\ current\_date);}
+\DoxyCodeLine{00118\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_aa21c0c47243e7d30599b7cdadf9a58ec}{valida\_lote}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ lote);}
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_af1ffe9545e9042641139d1c4acac5696}{validar\_dados\_entrada}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ lote,\ \mbox{\hyperlink{struct_data}{Data}}\ data,\ \textcolor{keywordtype}{int}\ doses,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nome,\ \mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_a45484ef9f4a295e02fccde75a3ef786c}{imprime\_erros}}(ERROS\ code);}
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_a0a47d28e701b7bd50659243f7f02f382}{imprimie\_errosComArg}}(ERROS\ code,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ arg);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \mbox{\hyperlink{struct_vacina}{Vacina}}*\ \mbox{\hyperlink{sistema_8h_a145f5980e55f082a0b3dac1e330fa566}{cria\_vacina}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ lote,\ \mbox{\hyperlink{struct_data}{Data}}\ data,\ \textcolor{keywordtype}{int}\ doses,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nome);}
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_ab392bae0f7f31d6f4759c369d75d154f}{insere\_vacinas}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \mbox{\hyperlink{struct_vacina}{Vacina}}*\ nova\_vacina);}
+\DoxyCodeLine{00127\ \mbox{\hyperlink{struct_vacina_lista_item}{VacinaListaItem}}*\ \mbox{\hyperlink{sistema_8h_abab49ec647cce356e7f8541696569f73}{criar\_item\_lista\_vacinas}}(\mbox{\hyperlink{struct_vacina}{Vacina}}*\ vacina);}
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_acd95069b27a1fe4337ee05e6b48ec69d}{inserir\_vacina\_no\_sistema}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \mbox{\hyperlink{struct_vacina_lista_item}{VacinaListaItem}}*\ novo\_item);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_a4ebe5b9716d2f01245f6649c2afbc971}{imprime\_info\_vacina}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_vacina}{Vacina}}*\ vacina);}
+\DoxyCodeLine{00131\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_ade45311badb3f46dc2c8e44ed73cce9d}{lista\_todas\_vacinas}}(\mbox{\hyperlink{struct_vacina_lista_item}{VacinaListaItem}}*\ head);}
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_affc3896bb5b896f18c811fcce2ad6771}{lista\_vacinas\_especificas}}(\mbox{\hyperlink{struct_vacina_lista_item}{VacinaListaItem}}*\ head,\ \textcolor{keywordtype}{char}*\ argv[],\ \textcolor{keywordtype}{int}\ argc);}
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_a42e4284bbea90404d58747bf00931e54}{ja\_vacinado}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \mbox{\hyperlink{struct_utente}{Utente}}*\ utente,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nome\_vacina);}
+\DoxyCodeLine{00134\ \mbox{\hyperlink{struct_vacina}{Vacina}}*\ \mbox{\hyperlink{sistema_8h_aaae81ec679f8cfcf4b751f6cf0ecdab9}{procura\_melhor\_vacina}}(\mbox{\hyperlink{struct_vacina_lista_item}{VacinaListaItem}}*\ head,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nome\_vacina,\ \mbox{\hyperlink{struct_data}{Data}}\ data\_atual);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \mbox{\hyperlink{struct_inoculacao_lista_item}{InoculacaoListaItem}}*\ \mbox{\hyperlink{sistema_8h_ac4feb0489ad433c1e5b29789b74aae40}{criar\_item\_lista\_inoculacao}}(\mbox{\hyperlink{struct_inoculacao}{Inoculacao}}\ inoculacao);}
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_ae7e5feb20a7367224b6bac27340d339b}{adicionar\_inoculacao\_utente}}(\mbox{\hyperlink{struct_utente}{Utente}}*\ utente,\ \mbox{\hyperlink{struct_inoculacao_lista_item}{InoculacaoListaItem}}*\ novo\_item);}
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_ab96463fe72b2e47aec2418cef1209c39}{adicionar\_inoculacao\_sistema}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \mbox{\hyperlink{struct_inoculacao_lista_item}{InoculacaoListaItem}}*\ novo\_item);}
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_a8be0e6e217841be064053a0051236457}{atualizar\_dados\_vacina}}(\mbox{\hyperlink{struct_vacina}{Vacina}}*\ vacina);}
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_a4b76a2634d2fe45b50fb18a387bb0592}{cria\_nova\_inoculacao}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \mbox{\hyperlink{struct_utente}{Utente}}*\ utente,\ \mbox{\hyperlink{struct_vacina}{Vacina}}*\ melhor\_opcao);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \mbox{\hyperlink{struct_utente}{Utente}}*\ \mbox{\hyperlink{sistema_8h_a59249a6cd2379dffeeca0c39995e9a9a}{encontra\_utente}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nome\_utente);}
+\DoxyCodeLine{00144\ \mbox{\hyperlink{struct_utente}{Utente}}*\ \mbox{\hyperlink{sistema_8h_a9bc2ee311b7b05e0569cdc39e89c7da2}{cria\_utente}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nome\_utente);}
+\DoxyCodeLine{00145\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_ac90626afd1fc7a2be54145a383318ccd}{insere\_utente}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \mbox{\hyperlink{struct_utente}{Utente}}*\ novo\_utente);}
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{sistema_8h_a9ee7e1985d5a1a618f38ab4c0326dec6}{remove\_matching\_inoculacao}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \mbox{\hyperlink{struct_utente}{Utente}}*\ utente,\ \mbox{\hyperlink{struct_data}{Data}}\ data\_vacinacao,\ \mbox{\hyperlink{struct_vacina}{Vacina}}*\ vacina);}
+\DoxyCodeLine{00147\ \mbox{\hyperlink{struct_vacina}{Vacina}}*\ \mbox{\hyperlink{sistema_8h_a10772f7b8d124263246629d46281b28c}{encontra\_vacina}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ lote);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{sistema_8h_a7c1d2ee179ae356db3fd40a85224f71c}{libertar\_memoria}}(\mbox{\hyperlink{struct_sistema_vacinas}{SistemaVacinas}}*\ sistema);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

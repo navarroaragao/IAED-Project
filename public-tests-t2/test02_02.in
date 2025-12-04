@@ -1,0 +1,17 @@
+c 11111 12-09-2025 80 Sarampo
+c 11112 15-10-2025 90 ZeroVirus
+c BC94A7 08-08-2025 80 Tétano
+c BC94A8 15-10-2025 90 Tétano
+c BC94A9 01-08-2025 90 Tétano
+c AAAAAA 10-10-2025 90 Alpha
+a ana Sarampo
+a jose Corona
+a maria Tétano
+a xico Tétano
+l
+r BC94A7
+r BC94A8
+r BC94A9
+r 11112
+l
+q

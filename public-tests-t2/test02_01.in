@@ -1,0 +1,11 @@
+c 11111 12-09-2025 80 Sarampo
+c 11112 15-10-2025 90 Corona
+c BC94A7 08-08-2025 80 Tétano
+c AAAAAA 10-10-2025 90 Alpha
+a ana Sarampo
+a jose Corona
+a maria Tétano
+r 11111
+r AAAAAA
+l
+q

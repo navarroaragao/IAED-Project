@@ -1,0 +1,182 @@
+\doxysection{comandos.\+h File Reference}
+\hypertarget{comandos_8h}{}\label{comandos_8h}\index{comandos.h@{comandos.h}}
+
+
+Comandos do sistema de gestão de vacinas.  
+
+
+{\ttfamily \#include "{}sistema.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{comandos_8h_a6d897dd0e8517382acfa37ea998f3d4e}{comando\+\_\+c}} (const char \texorpdfstring{$\ast$}{*}lote, \mbox{\hyperlink{struct_data}{Data}} data, int doses, const char \texorpdfstring{$\ast$}{*}nome, \mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}sistema)
+\begin{DoxyCompactList}\small\item\em Adiciona uma nova vacina ao sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{comandos_8h_a52e3a0fbdf2a2d1442e4047530855a05}{comando\+\_\+l}} (\mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}sistema, int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em lista vacinas do sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{comandos_8h_aed5df59ec1b50faa1220e4db20bf1d9c}{comando\+\_\+t}} (\mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}sistema, int dia, int mes, int ano)
+\begin{DoxyCompactList}\small\item\em altera ou consulta a data atual do sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{comandos_8h_ae2c88bfe3d6d61ba0e30fcc2c6d5bb8c}{comando\+\_\+a}} (const char \texorpdfstring{$\ast$}{*}nome\+\_\+utente, const char \texorpdfstring{$\ast$}{*}nome\+\_\+vacina, \mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}sistema)
+\begin{DoxyCompactList}\small\item\em Adiciona uma inoculação a um utente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{comandos_8h_a095aa2dfddc3284da1c4bf41023a2cc1}{comando\+\_\+u}} (\mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}sistema, const char \texorpdfstring{$\ast$}{*}nome\+\_\+utente)
+\begin{DoxyCompactList}\small\item\em Lista inoculações de utente(s). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{comandos_8h_a7439c79d7dd6fd7c0f2e2e82b7a92048}{comando\+\_\+r}} (const char \texorpdfstring{$\ast$}{*}lote, \mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}sistema)
+\begin{DoxyCompactList}\small\item\em Remove um lote de vacinas do sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{comandos_8h_ab5c652a04d1d9e073a0433e77ab04b65}{comando\+\_\+d}} (const char \texorpdfstring{$\ast$}{*}nome\+\_\+utente, \mbox{\hyperlink{struct_data}{Data}} data\+\_\+vacinacao, \mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}sistema, const char \texorpdfstring{$\ast$}{*}lote)
+\begin{DoxyCompactList}\small\item\em Remove inoculações do sistema. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Comandos do sistema de gestão de vacinas. 
+
+\begin{DoxyAuthor}{Author}
+ist1113402 
+\end{DoxyAuthor}
+\begin{DoxyNote}{Note}
+project -\/ iaed25 
+\end{DoxyNote}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{comandos_8h_ae2c88bfe3d6d61ba0e30fcc2c6d5bb8c}\index{comandos.h@{comandos.h}!comando\_a@{comando\_a}}
+\index{comando\_a@{comando\_a}!comandos.h@{comandos.h}}
+\doxysubsubsection{\texorpdfstring{comando\_a()}{comando\_a()}}
+{\footnotesize\ttfamily \label{comandos_8h_ae2c88bfe3d6d61ba0e30fcc2c6d5bb8c} 
+void comando\+\_\+a (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{nome\+\_\+utente}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{nome\+\_\+vacina}{, }\item[{\mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}}]{sistema}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona uma inoculação a um utente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+\_\+utente} & string que representa o nome do utente a vacinar \\
+\hline
+{\em nome\+\_\+vacina} & string que representa o nome da vacina a administrar \\
+\hline
+{\em sistema} & ponteiro para o sistema de vacinas\\
+\hline
+\end{DoxyParams}
+Cria um novo utente se não existir. Verifica se o utente já recebeu a vacina, encontra a melhor vacina disponível (data de validade mais proxima da data atual) e regista a inoculação. Imprime o lote utilizado ou mensagem de erro se aplicável \Hypertarget{comandos_8h_a6d897dd0e8517382acfa37ea998f3d4e}\index{comandos.h@{comandos.h}!comando\_c@{comando\_c}}
+\index{comando\_c@{comando\_c}!comandos.h@{comandos.h}}
+\doxysubsubsection{\texorpdfstring{comando\_c()}{comando\_c()}}
+{\footnotesize\ttfamily \label{comandos_8h_a6d897dd0e8517382acfa37ea998f3d4e} 
+void comando\+\_\+c (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{lote}{, }\item[{\mbox{\hyperlink{struct_data}{Data}}}]{data}{, }\item[{int}]{doses}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{nome}{, }\item[{\mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}}]{sistema}{}\end{DoxyParamCaption})}
+
+
+
+Adiciona uma nova vacina ao sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lote} & string que representa o lote da vacina \\
+\hline
+{\em data} & data de validade da vacina (estrutura \doxylink{struct_data}{Data}) \\
+\hline
+{\em doses} & número de doses disponíveis da vacina (inteiro) \\
+\hline
+{\em nome} & string que representa o nome da vacina \\
+\hline
+{\em sistema} & ponteiro para o sistema de vacinas (estrutura \doxylink{struct_sistema_vacinas}{Sistema\+Vacinas})\\
+\hline
+\end{DoxyParams}
+A função verifica se os dados de entrada são válidos, se há capacidade no sistema e se o lote já existe. Se tudo estiver correto, cria uma nova vacina e a insere no sistema. Se houver algum erro, imprime a mensagem de erro correspondente. Se a vacina for criada com sucesso, imprime o lote da vacina. \Hypertarget{comandos_8h_ab5c652a04d1d9e073a0433e77ab04b65}\index{comandos.h@{comandos.h}!comando\_d@{comando\_d}}
+\index{comando\_d@{comando\_d}!comandos.h@{comandos.h}}
+\doxysubsubsection{\texorpdfstring{comando\_d()}{comando\_d()}}
+{\footnotesize\ttfamily \label{comandos_8h_ab5c652a04d1d9e073a0433e77ab04b65} 
+void comando\+\_\+d (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{nome\+\_\+utente}{, }\item[{\mbox{\hyperlink{struct_data}{Data}}}]{data\+\_\+vacinacao}{, }\item[{\mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}}]{sistema}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{lote}{}\end{DoxyParamCaption})}
+
+
+
+Remove inoculações do sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+\_\+utente} & string que representa o nome do utente \\
+\hline
+{\em data\+\_\+vacinacao} & data da vacinação para filtrar (-\/1 ignora) \\
+\hline
+{\em sistema} & ponteiro para o sistema de vacinas \\
+\hline
+{\em lote} & número do lote para filtrar (string vazia ignora)\\
+\hline
+\end{DoxyParams}
+Remove inoculações que correspondam aos critérios\+:
+\begin{DoxyItemize}
+\item \doxylink{struct_utente}{Utente} especifico;
+\item \doxylink{struct_data}{Data};
+\item Lote; Imprime o número de inoculações removidas ou mensagens de erro apropriadas. 
+\end{DoxyItemize}\Hypertarget{comandos_8h_a52e3a0fbdf2a2d1442e4047530855a05}\index{comandos.h@{comandos.h}!comando\_l@{comando\_l}}
+\index{comando\_l@{comando\_l}!comandos.h@{comandos.h}}
+\doxysubsubsection{\texorpdfstring{comando\_l()}{comando\_l()}}
+{\footnotesize\ttfamily \label{comandos_8h_a52e3a0fbdf2a2d1442e4047530855a05} 
+void comando\+\_\+l (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}}]{sistema}{, }\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+lista vacinas do sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sistema} & ponteiro para o sistema de vacinas \\
+\hline
+{\em argc} & número de argumentos (nomes de vacinas a filtrar) \\
+\hline
+{\em argv} & array de strings com nomes de vacinas a filtrar\\
+\hline
+\end{DoxyParams}
+Se não forem fornecidos argumentos (argc=0), lista todas as vacinas. Caso contrário, lista apenas as vacinas cujos fabricantes estão em argv. \Hypertarget{comandos_8h_a7439c79d7dd6fd7c0f2e2e82b7a92048}\index{comandos.h@{comandos.h}!comando\_r@{comando\_r}}
+\index{comando\_r@{comando\_r}!comandos.h@{comandos.h}}
+\doxysubsubsection{\texorpdfstring{comando\_r()}{comando\_r()}}
+{\footnotesize\ttfamily \label{comandos_8h_a7439c79d7dd6fd7c0f2e2e82b7a92048} 
+void comando\+\_\+r (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{lote}{, }\item[{\mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}}]{sistema}{}\end{DoxyParamCaption})}
+
+
+
+Remove um lote de vacinas do sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lote} & string que representa o lote a remover \\
+\hline
+{\em sistema} & ponteiro para o sistema de vacinas\\
+\hline
+\end{DoxyParams}
+Remove completamente o lote se não tiver doses inoculadas. Se tiver doses inoculadas, define as doses disponíveis para 0. Imprime o número de doses inoculadas ou mensagem de erro se o lote não existir. \Hypertarget{comandos_8h_aed5df59ec1b50faa1220e4db20bf1d9c}\index{comandos.h@{comandos.h}!comando\_t@{comando\_t}}
+\index{comando\_t@{comando\_t}!comandos.h@{comandos.h}}
+\doxysubsubsection{\texorpdfstring{comando\_t()}{comando\_t()}}
+{\footnotesize\ttfamily \label{comandos_8h_aed5df59ec1b50faa1220e4db20bf1d9c} 
+void comando\+\_\+t (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}}]{sistema}{, }\item[{int}]{dia}{, }\item[{int}]{mes}{, }\item[{int}]{ano}{}\end{DoxyParamCaption})}
+
+
+
+altera ou consulta a data atual do sistema. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sistema} & ponteiro para o sistema de vacinas \\
+\hline
+{\em dia} & dia da nova data \\
+\hline
+{\em mes} & mês da nova data \\
+\hline
+{\em ano} & ano da nova data\\
+\hline
+\end{DoxyParams}
+Se dia, mes e ano forem -\/1, imprime a data atual do sistema. Caso contrário, valida a nova data e atualiza o sistema se válida. Imprime a nova data ou mensagem de erro se aplicável. \Hypertarget{comandos_8h_a095aa2dfddc3284da1c4bf41023a2cc1}\index{comandos.h@{comandos.h}!comando\_u@{comando\_u}}
+\index{comando\_u@{comando\_u}!comandos.h@{comandos.h}}
+\doxysubsubsection{\texorpdfstring{comando\_u()}{comando\_u()}}
+{\footnotesize\ttfamily \label{comandos_8h_a095aa2dfddc3284da1c4bf41023a2cc1} 
+void comando\+\_\+u (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_sistema_vacinas}{Sistema\+Vacinas}} \texorpdfstring{$\ast$}{*}}]{sistema}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{nome\+\_\+utente}{}\end{DoxyParamCaption})}
+
+
+
+Lista inoculações de utente(s). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sistema} & ponteiro para o sistema de vacinas \\
+\hline
+{\em nome\+\_\+utente} & nome do utente a listar (NULL para listar todos)\\
+\hline
+\end{DoxyParams}
+Se nome\+\_\+utente for NULL, lista todas as inoculações do sistema. Caso contrário, lista apenas as inoculações do utente especificado. Imprime mensagem de erro se o utente não for encontrado. 
